@@ -5,5 +5,6 @@ The neural network parameters are defined on the client side.
 
 
 Example:
-https://user-images.githubusercontent.com/78417431/216106569-2bf07ecc-898c-458f-88db-1e01ecfe7cc5.mp4
+![java_nn](https://user-images.githubusercontent.com/78417431/216107213-7bf569b7-f16e-442a-8d85-571397fe1f3d.gif)
+
 
