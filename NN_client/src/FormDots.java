@@ -28,13 +28,12 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
     private BufferedImage pimg = new BufferedImage(w / square, h / square, BufferedImage.TYPE_INT_RGB);
     //private int frame = 0;
     //private double learning_rate = 0.001;
-    private int epoch = (w*h/square);
+    private int epoch; //= (w*h/square);
     private double l2 = 0.0000001;
 
-    //private NeuralNetwork nn;
     public ArrayList<Point> points = new ArrayList<Point>();
 
-    public FormDots(Integer port1,Integer port2, String message) throws IOException {
+    public FormDots(Integer port1,Integer port2, String message, Integer epoch) throws IOException {
 
         Socket socket = new Socket("127.0.0.1",port1);
         //Socket socket2 = new Socket("127.0.0.1",port2);
@@ -42,8 +41,9 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
         BufferedWriter writer = new BufferedWriter(
                 new OutputStreamWriter(
                         socket.getOutputStream()));
-        //ObjectOutputStream outStream = new ObjectOutputStream(socket2.getOutputStream());
-        //ObjectInputStream inputStream = new ObjectInputStream(socket2.getInputStream());
+
+        //this.img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        //this.pimg = new BufferedImage(w / square, h / square, BufferedImage.TYPE_INT_RGB);
 
         writer.write("NeuralNetwork>"+message);
         writer.newLine();
@@ -58,11 +58,10 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
         this.writer = writer;
         this.reader = reader;
         this.frame = 3;
-        //this.outStream = outStream;
-        //this.inputStream = inputStream;
-        //this.dos = dos;
-        //this.dis = dis;
-        //nn = new NeuralNetwork(learning_rate, sigmoid, dsigmoid, 2, 5, 5, 5, 2);
+        //this.h = h;
+        //this.w = w;
+        this.epoch = epoch;
+
         this.setSize(w + 16, h + 38);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
