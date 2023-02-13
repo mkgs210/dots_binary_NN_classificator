@@ -1,4 +1,5 @@
 # dots_binary_NN_classificator
+## $${\color{red}ПРОЕКТ \space\space В \space\space АКТИВНОЙ \space\space РАЗРАБОТКЕ}$$
 ## About
 *Dots binary NN classificator* is a platform for practical training of students in neural networks.
 
