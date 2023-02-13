@@ -1,5 +1,5 @@
 # dots_binary_NN_classificator
-## $${\color{red}ПРОЕКТ \space\space В \space\space АКТИВНОЙ \space\space РАЗРАБОТКЕ}$$
+## $${\color{red}THE \space\space APP \space\space IS \space\space ACTIVELY \space\space DEVELOPED}$$
 ## About
 *Dots binary NN classificator* is a platform for practical training of students in neural networks.
 
@@ -11,7 +11,7 @@ Neural network parameters are set in the start window on the client side.
 ## Interface
 Client start window:
 
-<img src="https://user-images.githubusercontent.com/78417431/218308375-952a908e-d135-481a-a51b-ee51be93fa44.png" width="550">
+<img src="https://user-images.githubusercontent.com/78417431/218521459-e6e1a318-4751-46f8-a373-3c512fa01a6c.png" width="550">
 
 Example:
 
