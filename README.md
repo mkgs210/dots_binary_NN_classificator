@@ -6,7 +6,10 @@
 The platform is Java client-server application for binary classification of points. Points are entered by the user using the mouse by click the left or right keys. 
 The server stores user neural network information in an SQL database. 
 
-Neural network parameters are set in the start window on the client side.
+Neural network parameters are set in the start window on the client side:
++ learning rate
++ hidden layers
++ number of epochs
 
 ## Interface
 Client start window:
