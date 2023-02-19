@@ -23,5 +23,4 @@ Example:
 
 ## Diagram
 
-
 ![java](https://user-images.githubusercontent.com/78417431/217339561-75a9758d-17d5-4337-a772-05e54d5d6158.png)
