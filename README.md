@@ -23,5 +23,4 @@ Example:
 
 ## Diagram
 
-
-<img src="https://user-images.githubusercontent.com/78417431/219953844-d397dfc6-f124-4cba-a579-1be1fd95b51c.png" width="900">
+<img src="https://user-images.githubusercontent.com/78417431/219960592-2774aa2e-51ae-4b18-ba25-234db96df195.png" width="900">
