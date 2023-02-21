@@ -14,7 +14,7 @@ Neural network parameters are set in the start window on the client side:
 ## Interface
 Client start window:
 
-<img src="https://user-images.githubusercontent.com/78417431/218521459-e6e1a318-4751-46f8-a373-3c512fa01a6c.png" width="550">
+<img src="https://user-images.githubusercontent.com/78417431/220326716-645680d1-cc63-4523-9c51-e93165b38056.png" width="550">
 
 Example:
 
