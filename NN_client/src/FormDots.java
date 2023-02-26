@@ -18,6 +18,7 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
     private boolean smart;
     private int frame;
     private boolean was_added_new_point;
+    private boolean lezz_go;
     private  BufferedWriter writer;
     private  ObjectOutputStream outStream;
     private  BufferedReader reader;
@@ -51,6 +52,7 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
         this.thread = reader.readLine();
         System.out.println(thread);
         this.was_added_new_point=true;
+        this.lezz_go = true;
 
         this.smart = true;
         this.port1 = port1;
@@ -81,55 +83,61 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
     @Override
     public void paint(Graphics g) {
         if (was_added_new_point){
-            if(points.size() > 0) {
-                try {
-                    smart=false;
-                    //writer.newLine();
+            if(lezz_go){
+                if(points.size() > 0) {
+                    try {
+                        smart=false;
+                        //writer.newLine();
 
-                    writer.write("backpropagation>"+epoch+">"+h+">"+ w+">"+thread);
+                        writer.write("backpropagation>"+epoch+">"+h+">"+ w+">"+thread);
 
-                    System.out.println("_________");
-                    System.out.println(points);
-                    System.out.println("p size: "+points.size());
-                    System.out.println("_________");
+                        System.out.println("_________");
+                        System.out.println(points);
+                        System.out.println("p size: "+points.size());
+                        System.out.println("_________");
 
-                    Socket socket2 = new Socket("127.0.0.1",port2);
-                    outStream = new ObjectOutputStream(socket2.getOutputStream());
-                    outStream.writeObject(points);
+                        Socket socket2 = new Socket("127.0.0.1",port2);
+                        outStream = new ObjectOutputStream(socket2.getOutputStream());
+                        outStream.writeObject(points);
 
-                    writer.newLine();
-                    writer.flush();
-                    outStream.flush();
+                        writer.newLine();
+                        writer.flush();
+                        outStream.flush();
 
-                    if("nn success".equals(reader.readLine())){
-                        smart=true;
-                    }
+                        if("nn success".equals(reader.readLine())){
+                            smart=true;
+                        }
 
-                } catch (IOException e) {throw new RuntimeException(e);}
+                    } catch (IOException e) {throw new RuntimeException(e);}
+                }
             }
             if (smart){
-                try {
-                    System.out.println("square");
-                    writer.write("square>" + square + ">" + h + ">" + w +">"+thread);
-                    writer.newLine();
-                    writer.flush();
-                    System.out.println("square success!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                if(lezz_go) {
+                    try {
+                        System.out.println("square");
+                        writer.write("square>" + square + ">" + h + ">" + w + ">" + thread);
+                        writer.newLine();
+                        writer.flush();
+                        System.out.println("square success!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-                    Socket socket2 = new Socket("127.0.0.1",port2);
-                    inputStream = new ObjectInputStream(socket2.getInputStream());
-                    ArrayList <Integer> color = (ArrayList<Integer>) inputStream.readObject();
+                        Socket socket2 = new Socket("127.0.0.1", port2);
+                        inputStream = new ObjectInputStream(socket2.getInputStream());
+                        ArrayList<Integer> color = (ArrayList<Integer>) inputStream.readObject();
 
-                    System.out.println("color");
-                    for (int i = 0; i < w / square; i++) {//делим на квадраты
-                        for (int j = 0; j < h / square; j++) {
-                            //System.out.println(i*j+j+": "+color.get(i*j+j));
-                            pimg.setRGB(i, j, color.get(0));//j*i+j
-                            color.remove(0);
+                        System.out.println("color");
+                        for (int i = 0; i < w / square; i++) {//делим на квадраты
+                            for (int j = 0; j < h / square; j++) {
+                                //System.out.println(i*j+j+": "+color.get(i*j+j));
+                                pimg.setRGB(i, j, color.get(0));//j*i+j
+                                color.remove(0);
+                            }
                         }
-                    }
-                    System.out.println("pimg");
+                        System.out.println("pimg");
 
-                } catch (IOException | ClassNotFoundException e) {throw new RuntimeException(e);}
+                    } catch (IOException | ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
                 Graphics ig = img.getGraphics();
                 ig.drawImage(pimg, 0, 0, w, h, this);//pimg
                 for (Point p : points) {
@@ -142,7 +150,8 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
                 g.drawImage(img, 8, 30, w, h, this);
                 if (frame>1){
                     frame=0;
-                    //was_added_new_point=false;
+                    was_added_new_point=false;
+                    lezz_go=false;
                 }
                 else{
                     frame++;
@@ -165,6 +174,9 @@ public class FormDots extends JFrame implements Runnable, MouseListener {
         was_added_new_point=true;
         frame=0;
         int type = 0;
+        if(e.getButton() == 2){
+            lezz_go=true;
+        }
         if(e.getButton() == 1){
             points.add(new Point(e.getX()- 16, e.getY() - 38, type));
         }

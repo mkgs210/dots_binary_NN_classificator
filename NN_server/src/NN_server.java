@@ -17,9 +17,9 @@ public class NN_server {
 
         System.out.println("Server started!");
 
-        String url = "jdbc:mysql://localhost:3306/java_db";#your database
-        String user = "root";#your user
-        String pass = "12345";#your password
+        String url = "jdbc:mysql://localhost:3306/java_db";//your database
+        String user = "root";//your user
+        String pass = "12345";//your password
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");//.getDeclaredConstructor().newInstance();

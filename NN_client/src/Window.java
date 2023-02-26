@@ -10,19 +10,19 @@ import java.io.IOException;
 
 public class Window extends JFrame{
     public String message;
-    JLabel titleLable = new JLabel("Нейроночка");
-    JLabel learning_rate_Lable = new JLabel("learning rate:");
-    JLabel layers_Lable = new JLabel("hidden layers:");
-    JLabel he_Lable = new JLabel("height:");
-    JLabel wi_Lable = new JLabel("width:");
-    JLabel epoch_Lable = new JLabel("epoch:");
+    JLabel titleLable = new JLabel("Neural Network");
+    JLabel learning_rate_Lable = new JLabel("Learning rate:");
+    JLabel layers_Lable = new JLabel("Hidden layers:");
+    JLabel he_Lable = new JLabel("Height:");
+    JLabel wi_Lable = new JLabel("Width:");
+    JLabel epoch_Lable = new JLabel("Epoch:");
     JTextField learning_rate = new JTextField();
     //JTextField he = new JTextField();
     //JTextField wi = new JTextField();
     JTextField epoch = new JTextField();
     JTextField layers = new JTextField();
-    JButton start = new JButton("Запуск");
-    JButton exit = new JButton("Выход");
+    JButton start = new JButton("Start");
+    JButton exit = new JButton("Exit");
     public Window() {
         super("NN");
         this.setBounds(400, 280, 560, 390);
@@ -138,7 +138,7 @@ public class Window extends JFrame{
                     System.out.println("False");
                 }
             }catch (IOException ex){
-                System.out.println("Похоже сервер недоступен");
+                System.out.println("Server is not available");
                 setVisible(true);
                 JOptionPane.showMessageDialog(null, "Похоже сервер недоступен", "No connection", JOptionPane.PLAIN_MESSAGE);
             }
