@@ -1,7 +1,7 @@
 # dots_binary_NN_classificator
-### $${\color{red}THE \space\space APP \space\space IS \space\space ACTIVELY \space\space IMPROVED}$$
+### $${ THE \space\space APP \space\space IS \space\space ACTIVELY \space\space IMPROVED}$$
 ## About
-*Dots binary NN classificator* is a platform for practical training of students in neural networks.
+*Dots binary NN classificator* is a sandbox platform for practical training of students in neural networks.
 
 The platform is Java client-server application for binary classification of points. Points are entered by the user using the mouse by click the left or right keys. 
 The server stores user neural network information in an SQL database. 
