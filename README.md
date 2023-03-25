@@ -1,5 +1,5 @@
 # dots_binary_NN_classificator
-### $${ THE \space\space APP \space\space IS \space\space ACTIVELY \space\space IMPROVED}$$
+
 ## About
 *Dots binary NN classificator* is a sandbox platform for practical training of students in neural networks.
 
